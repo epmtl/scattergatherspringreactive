@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <script type="text/javascript">
+            var dataSource = new EventSource("http://localhost:8090/data");
+            dataSource.onmessage = function(e) {
+                var dataJson = JSON.parse(e.data);
+                console.log(dataJson);
+                document.getElementById("data").innerHTML = dataJson;
+            };
+        </script>
+        <div>DATA</div>
+        <div id="data"></div>
+    </body>
+</html>
